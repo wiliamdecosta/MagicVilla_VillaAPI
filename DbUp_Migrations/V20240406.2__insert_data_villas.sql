@@ -1,0 +1,2 @@
+INSERT INTO villas(id, town_id, name, details, rate, occupancy, created_date, updated_date) VALUES('877b86ea-5e5d-4ccc-9b03-fec9ed699ee1', '341a2177-7d21-4e82-8ce4-1bf8ac891ce3', 'Domino Villas', 'Villa bertemakan kartu domino', 300, 4, now(), now());
+INSERT INTO villas(id, town_id, name, details, rate, occupancy, created_date, updated_date) VALUES('bb316875-2655-490b-a0b6-435020c3762f', '555c0f68-c343-4444-8ab6-eae3b699fd4c', 'Flower Villas', 'Villa bertemakan bunga', 200, 5, now(), now());

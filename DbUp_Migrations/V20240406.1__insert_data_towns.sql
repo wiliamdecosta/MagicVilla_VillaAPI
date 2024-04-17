@@ -1,0 +1,2 @@
+INSERT INTO towns(id, name) VALUES('341a2177-7d21-4e82-8ce4-1bf8ac891ce3', 'JAKARTA');
+INSERT INTO towns(id, name) VALUES('555c0f68-c343-4444-8ab6-eae3b699fd4c', 'BANDUNG');
