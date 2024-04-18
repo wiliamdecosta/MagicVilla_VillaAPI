@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using JustclickCoreModules.Requests;
 using MagicVilla_DB.Data.Repositories.Abstract;
 using MagicVilla_DB.Data.Stores;
 using MagicVilla_DB.Models.Requests;

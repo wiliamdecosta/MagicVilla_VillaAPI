@@ -1,4 +1,4 @@
-﻿using MagicVilla_DB.Models.Response;
+﻿using JustclickCoreModules.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MagicVilla_DB.Utils

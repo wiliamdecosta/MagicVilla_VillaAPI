@@ -1,7 +1,8 @@
 ﻿
+using JustclickCoreModules.Requests;
+using JustclickCoreModules.Responses;
 using MagicVilla_DB.Data.Stores;
 using MagicVilla_DB.Models.Requests;
-using MagicVilla_DB.Models.Response;
 using MagicVilla_DB.Services;
 using MagicVilla_DB.Utils.Filters;
 using Microsoft.AspNetCore.Mvc;

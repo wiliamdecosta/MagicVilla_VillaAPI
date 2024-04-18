@@ -1,6 +1,5 @@
 ﻿
-using MagicVilla_DB.Data.Stores;
-using MagicVilla_DB.Models.Response;
+using JustclickCoreModules.Responses;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;

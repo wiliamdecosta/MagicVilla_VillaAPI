@@ -15,7 +15,6 @@ namespace MagicVilla_DB.Utils.Filters
         {
             IQueryable<T> query = _dbContext.Set<T>();
 
-
             // Filter data based on request
             foreach (var filter in _request.Filters)
             {

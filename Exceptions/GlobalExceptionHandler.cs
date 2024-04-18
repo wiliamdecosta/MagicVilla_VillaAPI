@@ -1,5 +1,5 @@
-﻿
-using MagicVilla_DB.Models.Response;
+﻿using JustclickCoreModules.Responses;
+using JustclickCoreModules.Validators;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 

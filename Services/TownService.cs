@@ -1,11 +1,8 @@
-﻿using AutoMapper;
-using MagicVilla_DB.Data;
-using MagicVilla_DB.Data.Repositories.Abstract;
+﻿using JustclickCoreModules.Requests;
+using JustclickCoreModules.Validators;
 using MagicVilla_DB.Data.Repositories.Implementation;
 using MagicVilla_DB.Data.Stores;
-using MagicVilla_DB.Exceptions;
 using MagicVilla_DB.Models.Requests;
-using MagicVilla_DB.Utils;
 using MagicVilla_DB.Utils.Filters;
 
 namespace MagicVilla_DB.Services
