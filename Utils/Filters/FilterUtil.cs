@@ -1,4 +1,7 @@
-﻿using MagicVilla_DB.Data;
+﻿using LinqKit;
+using MagicVilla_DB.Data;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Newtonsoft.Json.Linq;
 using System.Linq.Expressions;
 
 namespace MagicVilla_DB.Utils.Filters
@@ -11,9 +14,24 @@ namespace MagicVilla_DB.Utils.Filters
             this._dbContext = dbContext;
         }
 
-        public Paginated<T> GetContent(SearchRequest _request)
+        public Paginated<T> GetContent(SearchRequest _request, List<string> searchKeywordsColumns)
         {
             IQueryable<T> query = _dbContext.Set<T>();
+
+            var combinedExpression = PredicateBuilder.New<T>(false);
+            foreach (var col in searchKeywordsColumns)
+            {
+                var keywordsExpression = GetKeywordsExpression<T>(col, _request.Keywords);
+                if(keywordsExpression != null)
+                {
+                    combinedExpression = combinedExpression.Or(keywordsExpression);
+                }
+            }
+
+            if (combinedExpression.Body != null)
+            {
+                query = query.Where(combinedExpression);
+            }
 
             // Filter data based on request
             foreach (var filter in _request.Filters)
@@ -66,6 +84,18 @@ namespace MagicVilla_DB.Utils.Filters
                                                         query.Expression, Expression.Quote(lambda));
 
             return query.Provider.CreateQuery<T>(methodCallExpression);
+        }
+
+        private Expression<Func<T, bool>> GetKeywordsExpression<T>(string key, string value)
+        {
+            if (value == null || value == "") return null;
+
+            var parameter = Expression.Parameter(typeof(T), "x");
+            var property = Expression.Property(parameter, key);
+            var constant = Expression.Constant(Convert.ChangeType(value, property.Type));
+
+            Expression body = Expression.Call(property, "Contains", null, constant);
+            return body != null ? Expression.Lambda<Func<T, bool>>(body, parameter) : null;
         }
 
         private Expression<Func<T, bool>> GetFilterExpression<T>(string key, string @operator, string value)

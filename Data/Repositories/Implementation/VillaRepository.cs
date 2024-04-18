@@ -29,7 +29,11 @@ namespace MagicVilla_DB.Data.Repositories.Implementation
 
         public Paginated<Villa> FetchAll(SearchRequest searchRequest)
         {
-            Paginated<Villa> query = _filterUtil.GetContent(searchRequest);
+            List<string> searchKeywordsColumns = new List<string>();
+            searchKeywordsColumns.Add("Name");
+            searchKeywordsColumns.Add("Details");
+
+            Paginated<Villa> query = _filterUtil.GetContent(searchRequest, searchKeywordsColumns);
             query.Data = query.Data.Include(obj => obj.Town);
             return query;
         }
