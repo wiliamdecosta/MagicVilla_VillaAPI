@@ -24,6 +24,7 @@ namespace MagicVilla_DB.Utils.Filters
                 var keywordsExpression = GetKeywordsExpression<T>(col, _request.Keywords);
                 if(keywordsExpression != null)
                 {
+                    //OR combination
                     combinedExpression = combinedExpression.Or(keywordsExpression);
                 }
             }
