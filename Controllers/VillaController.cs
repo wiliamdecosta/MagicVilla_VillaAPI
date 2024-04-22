@@ -47,7 +47,7 @@ namespace MagicVilla_DB.Controllers
         [HttpGet("{id:Guid}", Name = "GetVilla")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<Villa> GetVilla(Guid id)
+        public ActionResult<BaseResponse<Villa>> GetVilla(Guid id)
         {
             var villa = _service.FetchOne(id);
             var responseData = BaseResponse<Villa>.Builder()
@@ -62,7 +62,7 @@ namespace MagicVilla_DB.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<Villa> CreateVilla([FromBody] VillaRequest villaRequest)
+        public ActionResult<BaseResponse<Villa>> CreateVilla([FromBody] VillaRequest villaRequest)
         {
             var fetchVilla = _service.Create(villaRequest);
             var responseData = BaseResponse<Villa>.Builder()
@@ -77,7 +77,7 @@ namespace MagicVilla_DB.Controllers
         [HttpPut("{id:Guid}", Name = "UpdateVilla")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<Villa> UpdateVilla(Guid id, [FromBody] VillaRequest villaRequest)
+        public ActionResult<BaseResponse<Villa>> UpdateVilla(Guid id, [FromBody] VillaRequest villaRequest)
         {
             var villa = _service.Update(id, villaRequest);
             var responseData = BaseResponse<Villa>.Builder()

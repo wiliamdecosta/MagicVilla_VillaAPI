@@ -18,22 +18,25 @@ namespace MagicVilla_DB.Utils.Filters
         {
             IQueryable<T> query = _dbContext.Set<T>();
 
-            var combinedExpression = PredicateBuilder.New<T>(false);
-            foreach (var col in searchKeywordsColumns)
+            if(_request.Keywords != null && _request.Keywords != "")
             {
-                var keywordsExpression = GetKeywordsExpression<T>(col, _request.Keywords);
-                if(keywordsExpression != null)
+                var combinedExpression = PredicateBuilder.New<T>(false);
+                foreach (var col in searchKeywordsColumns)
                 {
-                    //OR combination
-                    combinedExpression = combinedExpression.Or(keywordsExpression);
+                    var keywordsExpression = GetKeywordsExpression<T>(col, _request.Keywords);
+                    if (keywordsExpression != null)
+                    {
+                        //OR combination
+                        combinedExpression = combinedExpression.Or(keywordsExpression);
+                    }
+                }
+
+                if (combinedExpression.Body != null)
+                {
+                    query = query.Where(combinedExpression);
                 }
             }
-
-            if (combinedExpression.Body != null)
-            {
-                query = query.Where(combinedExpression);
-            }
-
+            
             // Filter data based on request
             foreach (var filter in _request.Filters)
             {

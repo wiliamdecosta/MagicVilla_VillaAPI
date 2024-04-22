@@ -16,7 +16,7 @@ namespace MagicVilla_DB.Controllers
     {
         private readonly TownService _townService;
 
-        public TownController(TownService townService, ApplicationDbContext db, IMapper mapper)
+        public TownController(TownService townService)
         {
             _townService = townService;
         }
@@ -45,7 +45,7 @@ namespace MagicVilla_DB.Controllers
         [HttpGet("{id:Guid}", Name = "GetTown")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<Villa> GetTown(Guid id)
+        public ActionResult<BaseResponse<Villa>> GetTown(Guid id)
         {
             Town town = _townService.FetchOne(id);
 

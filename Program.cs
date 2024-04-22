@@ -6,6 +6,7 @@ using MagicVilla_DB.Data.Repositories.Implementation;
 using MagicVilla_DB.Exceptions;
 using MagicVilla_DB.Mappers;
 using MagicVilla_DB.Services;
+using MagicVilla_DB.Services.Proxies;
 using MagicVilla_DB.Utils;
 using MagicVilla_DB.Utils.Filters;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,11 @@ if(result.Successful)
     System.Diagnostics.Debug.WriteLine(result.Error.Message);
 }
 
+//HttpClient config
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped(typeof(HttpClientService<>));
+
 //Mapper config
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
@@ -64,6 +70,8 @@ builder.Services.AddScoped<TownRepository>();
 builder.Services.AddScoped<VillaRepository>();
 builder.Services.AddScoped<TownService>();
 builder.Services.AddScoped<VillaService>();
+
+builder.Services.AddScoped<CouponProxyService>();
 
 builder.Services.AddScoped(typeof(FilterUtil<>));
 

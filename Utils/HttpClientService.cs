@@ -77,8 +77,14 @@ namespace MagicVilla_DB.Utils
                             .Build();
                     default:
                         var apiContent = await apiResponse.Content.ReadAsStringAsync();
-                        BaseResponse<T> ? apiResponseDto = JsonConvert.DeserializeObject<BaseResponse<T>>(apiContent);
-                        return apiResponseDto;
+                        Console.WriteLine(apiContent);
+                        T ? apiResponseDto = JsonConvert.DeserializeObject<T>(apiContent);
+
+                        return BaseResponse<T>.Builder()
+                            .Code(StatusCodes.Status200OK)
+                            .Message("Success")
+                            .Data(apiResponseDto)
+                            .Build();
                 }
             }
             catch (Exception ex)
