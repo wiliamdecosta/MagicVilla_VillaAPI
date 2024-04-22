@@ -3,6 +3,7 @@ using JustclickCoreModules.Responses;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MagicVilla_DB.Utils
 {
@@ -20,6 +21,13 @@ namespace MagicVilla_DB.Utils
             HttpClient client = _httpClientFactory.CreateClient("ApiClient");
             HttpRequestMessage message = new();
             message.Headers.Add("Accept", "applicaton/json");
+
+            //add additional headers
+            foreach (KeyValuePair<string, string> pair in request.Headers)
+            {
+                message.Headers.Add(pair.Key, pair.Value);
+            }
+
             message.RequestUri = new Uri(request.RequestUrl);
             if(request.Data != null)
             {

@@ -12,6 +12,7 @@
     {
         public ApiType ApiType { get; set; }
         public string RequestUrl { get; set; }
+        public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
         public object Data { get; set; }
 
     }

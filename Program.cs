@@ -71,8 +71,10 @@ builder.Services.AddScoped<VillaRepository>();
 builder.Services.AddScoped<TownService>();
 builder.Services.AddScoped<VillaService>();
 
+//proxy services
 builder.Services.AddScoped<CouponProxyService>();
 
+//filter,searching,sorting util
 builder.Services.AddScoped(typeof(FilterUtil<>));
 
 var app = builder.Build();
