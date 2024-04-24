@@ -1,6 +1,7 @@
-﻿using JustclickCoreModules.Responses;
+﻿using JustclickCoreModules.HttpClients;
+using JustclickCoreModules.Responses;
+using JustclickCoreModules.Utils;
 using MagicVilla_DB.Models.Responses;
-using MagicVilla_DB.Utils;
 
 namespace MagicVilla_DB.Services.Proxies
 {

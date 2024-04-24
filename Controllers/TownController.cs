@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using JustclickCoreModules.Filters;
 using JustclickCoreModules.Requests;
 using JustclickCoreModules.Responses;
 using MagicVilla_DB.Data;

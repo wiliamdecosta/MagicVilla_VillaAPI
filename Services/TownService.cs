@@ -1,4 +1,5 @@
-﻿using JustclickCoreModules.Requests;
+﻿using JustclickCoreModules.Filters;
+using JustclickCoreModules.Requests;
 using JustclickCoreModules.Validators;
 using MagicVilla_DB.Data.Repositories.Implementation;
 using MagicVilla_DB.Data.Stores;

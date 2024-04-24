@@ -1,7 +1,7 @@
-﻿using JustclickCoreModules.Requests;
+﻿using JustclickCoreModules.Filters;
+using JustclickCoreModules.Requests;
 using MagicVilla_DB.Data.Stores;
 using MagicVilla_DB.Models.Requests;
-using MagicVilla_DB.Utils.Filters;
 
 namespace MagicVilla_DB.Data.Repositories.Abstract
 {

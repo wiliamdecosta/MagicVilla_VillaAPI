@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Azure.Core;
+using JustclickCoreModules.Filters;
 using JustclickCoreModules.Requests;
 using MagicVilla_DB.Data.Repositories.Abstract;
 using MagicVilla_DB.Data.Stores;

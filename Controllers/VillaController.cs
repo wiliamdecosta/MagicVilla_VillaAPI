@@ -1,12 +1,11 @@
 ﻿
+using JustclickCoreModules.Filters;
 using JustclickCoreModules.Requests;
 using JustclickCoreModules.Responses;
 using MagicVilla_DB.Data.Stores;
 using MagicVilla_DB.Models.Requests;
 using MagicVilla_DB.Services;
-using MagicVilla_DB.Utils.Filters;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace MagicVilla_DB.Controllers

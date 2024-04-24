@@ -1,7 +1,6 @@
-﻿using LinqKit;
+﻿using JustclickCoreModules.Filters;
+using LinqKit;
 using MagicVilla_DB.Data;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Newtonsoft.Json.Linq;
 using System.Linq.Expressions;
 
 namespace MagicVilla_DB.Utils.Filters

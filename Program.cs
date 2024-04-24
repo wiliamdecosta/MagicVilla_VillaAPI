@@ -1,5 +1,6 @@
 using AutoMapper;
 using DbUp;
+using JustclickCoreModules.HttpClients;
 using JustclickCoreModules.Validators;
 using MagicVilla_DB.Data;
 using MagicVilla_DB.Data.Repositories.Implementation;
